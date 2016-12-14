@@ -1,0 +1,33 @@
+{# surcharge la vue de base.html.twig #}
+{% extends 'base.html.twig' %}
+
+{# définit la variable toto #}
+{% set toto = 'hello' %}
+
+{# surcharge le bloc body de base.html.twig #}
+{% block body %}
+    {# affiche le contenu du bloc surchargé #}
+    {{ parent() }}
+    {# affiche ma variable hello, puis name #}
+    {{ hello }}<br />{{ name }}
+    
+    {# Pour tester #}
+    {{ dump(name) }}
+    
+    {% if name is not null %}
+        <p>Vous avez un nom</p>
+    {% endif %}
+    
+{% endblock %}      
+
+{#
+BALISES
+{%  tout ce qui est fonctionnel - on utilise les fonctions (nouvelle variable,boucles, ifs...)
+{{ toto }} 
+    echo => afficher
+{% set toto = hello %}
+    SET fonction pour définir directement dans la vue
+|
+    applique un filtre (majuscules...)
+#}
+
